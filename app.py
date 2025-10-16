@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # Load models
 @st.cache_resource
 def load_models():
-    lda_pipeline = joblib.load("lda_pipeline.joblib")
-    nmf_pipeline = joblib.load("nmf_pipeline.joblib")
+    lda_pipeline = joblib.load("/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/lda_pipeline.joblib")
+    nmf_pipeline = joblib.load("/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/nmf_pipeline.joblib")
     return lda_pipeline, nmf_pipeline
 
 lda_pipeline, nmf_pipeline = load_models()
@@ -40,14 +40,18 @@ if st.button("Predict Topic"):
       
         # Display Top Words for Topic
         feature_names = pipeline.named_steps['vectorizer'].get_feature_names_out()
-        model = pipeline.named_steps['model']
         
-        top_words = [feature_names[i] for i in model.components_[topic_index].argsort()[:-11:-1]]
+        # Get last step of pipeline (works for both LDA and NMF)
+        model = list(pipeline.named_steps.values())[-1]
+        
+        # Get top words
+        top_indices = model.components_[topic_index].argsort()[:-11:-1]
+        top_words = [feature_names[i] for i in top_indices]
         st.subheader("🔍 Top Words for this Topic")
         st.write(", ".join(top_words))
         
-        # bar chart of top words
-        top_values = model.components_[topic_index][[model.components_[topic_index].argsort()[:-11:-1]]][0]
+        # Bar chart of top words
+        top_values = model.components_[topic_index][top_indices]
         fig, ax = plt.subplots()
         ax.barh(top_words[::-1], top_values[::-1], color="skyblue")
         ax.set_xlabel("Word Importance")
