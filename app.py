@@ -1,16 +1,11 @@
-!pip install streamlit joblib -q
-
 import streamlit as st
 import joblib
-
-from google.colab import drive
-drive.mount('/content/drive')
 
 # Load models
 @st.cache_resource
 def load_models():
-    lda_model = joblib.load('/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/lda_pipeline.joblib')
-    nmf_model = joblib.load('/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/nmf_pipeline.joblib')
+    lda_model = joblib.load(lda_pipeline.joblib')
+    nmf_model = joblib.load(nmf_pipeline.joblib')
     return lda_model, nmf_model
 
 lda_pipeline, nmf_pipeline = load_models()
@@ -44,7 +39,3 @@ if st.button("Predict Topic"):
         st.write("Topic probabilities:", topic_distribution)
     else:
         st.warning("Please enter some text.")
-
-!jupyter nbconvert --to script "/content/drive/MyDrive/Colab Notebooks/Topic_Modelling_News_Articles_app/app.ipynb"
-
-!mv "/content/drive/MyDrive/Colab Notebooks/Topic_Modelling_News_Articles_app/app.txt" "/content/drive/MyDrive/Colab Notebooks/Topic_Modelling_News_Articles_app/app.py"
