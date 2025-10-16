@@ -1,41 +1,55 @@
 import streamlit as st
 import joblib
+import matplotlib.pyplot as plt
 
 # Load models
 @st.cache_resource
 def load_models():
-    lda_model = joblib.load(lda_pipeline.joblib')
-    nmf_model = joblib.load(nmf_pipeline.joblib')
-    return lda_model, nmf_model
+    lda_pipeline = joblib.load("lda_pipeline.joblib")
+    nmf_pipeline = joblib.load("nmf_pipeline.joblib")
+    return lda_pipeline, nmf_pipeline
 
 lda_pipeline, nmf_pipeline = load_models()
 
-# Title
-st.title("🧾 News Topic Modelling App")
+# App Header
+st.title("🔍 News Topic Modelling App")
+st.write("Classify news articles into topics using LDA or NMF")
 
-# Sidebar
-model_choice = st.sidebar.selectbox(
-    "Choose Topic Modelling Algorithm:",
-    ("LDA", "NMF")
-)
+# Sidebar: Model selection
+model_choice = st.sidebar.selectbox("Choose Topic Modelling Algorithm", ["LDA", "NMF"])
 
 # User input
-user_text = st.text_area("Enter a News Article Text:")
+user_text = st.text_area("Enter a News Article:")
 
+# Predict Topic
 if st.button("Predict Topic"):
-    if user_text.strip():
-        if model_choice == "LDA":
-            model = lda_pipeline
-        else:
-            model = nmf_pipeline
-
-        # Transform the text and get topic probabilities
-        topic_distribution = model.transform([user_text])
-        topic_index = topic_distribution.argmax()
-
-        st.success(f"Predicted Topic: Topic {topic_index + 1}")
-
-        # Show topic probabilities
-        st.write("Topic probabilities:", topic_distribution)
+    if user_text.strip() == "":
+        st.warning("Please enter some text!")
     else:
-        st.warning("Please enter some text.")
+        # Select pipeline
+        pipeline = lda_pipeline if model_choice == "LDA" else nmf_pipeline
+        
+        # Transform input text
+        topic_distribution = pipeline.transform([user_text])
+        topic_index = topic_distribution.argmax()
+        
+        # Show predicted topic
+        st.success(f"Predicted Topic: Topic {topic_index + 1}")
+        st.write("Topic probabilities:", topic_distribution)
+        
+      
+        # Display Top Words for Topic
+        feature_names = pipeline.named_steps['vectorizer'].get_feature_names_out()
+        model = pipeline.named_steps['model']
+        
+        top_words = [feature_names[i] for i in model.components_[topic_index].argsort()[:-11:-1]]
+        st.subheader("🔍 Top Words for this Topic")
+        st.write(", ".join(top_words))
+        
+        # bar chart of top words
+        top_values = model.components_[topic_index][[model.components_[topic_index].argsort()[:-11:-1]]][0]
+        fig, ax = plt.subplots()
+        ax.barh(top_words[::-1], top_values[::-1], color="skyblue")
+        ax.set_xlabel("Word Importance")
+        ax.set_title(f"Top Words in Topic {topic_index + 1}")
+        st.pyplot(fig)
