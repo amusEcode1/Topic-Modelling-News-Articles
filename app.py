@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # Load models
 @st.cache_resource
 def load_models():
-    lda_pipeline = joblib.load("/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/lda_pipeline.joblib")
-    nmf_pipeline = joblib.load("/content/drive/MyDrive/Models/Topic_Modelling_News_Articles/nmf_pipeline.joblib")
+    lda_pipeline = joblib.load("lda_pipeline.joblib")
+    nmf_pipeline = joblib.load("nmf_pipeline.joblib")
     return lda_pipeline, nmf_pipeline
 
 lda_pipeline, nmf_pipeline = load_models()
