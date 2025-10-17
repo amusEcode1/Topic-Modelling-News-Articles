@@ -1,4 +1,4 @@
-# 🔍 News Topic Modelling App
+## 🔍 News Topic Modelling App
 
 This project is a **Natural Language Processing (NLP)** application that performs **topic modelling** on news articles using **LDA (Latent Dirichlet Allocation)** and **NMF (Non-negative Matrix Factorization)**. It helps automatically discover hidden themes and categorize news content.
 
