@@ -88,6 +88,7 @@ Simply paste or type any news article or headline in the input box and click Ana
 ---
 
 ## 📂 Folder Structure
+```
 News-Topic-Modelling-App/
 ├── app.py               # Streamlit app
 ├── lda_pipeline.joblib  # Saved LDA pipeline
@@ -97,3 +98,26 @@ News-Topic-Modelling-App/
 │   ├── wordcloud_example.png
 │   ├── pyldavis_example.png
 └── README.md
+```
+
+---
+
+## ❓ Help
+If you encounter any issues:
+- Check the [Streamlit Documentation](https://docs.streamlit.io/)
+- Search for similar issues or solutions on [Kaggle](https://www.kaggle.com/)
+- Open an issue in this repository
+
+---
+
+## ✍️ Author
+👤 Oluyale Ezekiel
+- Email: ezekieloluyale@gmail.com
+- LinkedIn: [Ezekiel Oluyale](https://www.linkedin.com/in/ezekiel-oluyale)
+- GitHub: [Product Review Sentiment Analysis](https://github.com/amusEcode1/Product_Review_Sentiment_Analysis)
+- Twitter: [@amusEcode1](https://x.com/amusEcode1?t=uHxhLzrA1TShRiSMrYZQiQ&s=09)
+
+---
+
+## 🙏 Acknowledgement
+Thank you, Elevvo, for the incredible opportunity and amazing Internship.
