@@ -50,9 +50,30 @@ The dataset used is the BBC News Dataset (40,000+ samples).
 ---
 
 ## 📦 Dependencies
-
 Before running locally, ensure these are installed:
 
 ```sh
 pip install streamlit numpy pandas matplotlib seaborn wordcloud beautifulsoup4 nltk scikit-learn pyLDAvis joblib
 ```
+
+## Installing
+To install Streamlit:
+```sh
+pip install streamlit
+```
+To install all required dependencies:
+```sh
+pip install -r requirements.txt
+```
+
+## Running the Application Locally
+```sh
+streamlit run app.py
+```
+Then open the local URL (usually http://localhost:8501/) in your browser.
+
+---
+
+## 📰 Try the App Online
+You can use the app directly here: [News Articles Modelling](https://news-articles-modelling.streamlit.app/)<br>
+Simply paste or type any news article or headline in the input box and click Analyze to discover its dominant topic (e.g., Sports, Conflicts, Politics, Health, etc.).
