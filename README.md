@@ -85,7 +85,7 @@ Simply paste or type any news article or headline in the input box and click Ana
 
 ## 📂 Folder Structure
 ```
-News-Topic-Modelling-App/
+Topic-Modelling-News-Articles/
 ├── app.py               
 ├── lda_pipeline.joblib  
 ├── nmf_pipeline.joblib  
