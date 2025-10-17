@@ -72,8 +72,28 @@ streamlit run app.py
 ```
 Then open the local URL (usually http://localhost:8501/) in your browser.
 
----
-
 ## 📰 Try the App Online
 You can use the app directly here: [News Articles Modelling](https://news-articles-modelling.streamlit.app/)<br>
 Simply paste or type any news article or headline in the input box and click Analyze to discover its dominant topic (e.g., Sports, Conflicts, Politics, Health, etc.).
+
+---
+
+## 💡 Features
+- Clean and preprocess news text data
+- Extract meaningful features using CountVectorizer or TF-IDF
+- Train and compare LDA and NMF topic models
+- Visualize top words and topic-word distributions
+- Deploy an interactive Streamlit app for prediction
+
+---
+
+## 📂 Folder Structure
+News-Topic-Modelling-App/
+├── app.py               # Streamlit app
+├── lda_pipeline.joblib  # Saved LDA pipeline
+├── nmf_pipeline.joblib  # Saved NMF pipeline
+├── requirements.txt     
+├── images/              
+│   ├── wordcloud_example.png
+│   ├── pyldavis_example.png
+└── README.md
