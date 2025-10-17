@@ -86,13 +86,15 @@ Simply paste or type any news article or headline in the input box and click Ana
 ## 📂 Folder Structure
 ```
 News-Topic-Modelling-App/
-├── app.py               # Streamlit app
-├── lda_pipeline.joblib  # Saved LDA pipeline
-├── nmf_pipeline.joblib  # Saved NMF pipeline
+├── app.py               
+├── lda_pipeline.joblib  
+├── nmf_pipeline.joblib  
 ├── requirements.txt     
 ├── images/              
-│   ├── wordcloud_example.png
-│   ├── pyldavis_example.png
+│   ├── lda_word_cloud
+│   ├──...
+│   ├── nmf_word_cloud
+│   ├──...
 └── README.md
 ```
 
