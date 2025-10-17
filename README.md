@@ -28,10 +28,6 @@ The dataset used is the BBC News Dataset (40,000+ samples).
   - [Kaggle - BBC News Dataset](https://www.kaggle.com/datasets/gpreda/bbc-news)
   - [Google Drive - BBC News Dataset](https://drive.google.com/file/d/14OXcLK6HNOJOa6iJtR8bzVG9kwcHLVzt/view?usp=drive_link)
 
-- Discover hidden topics or themes in news articles or blog posts  
-- Preprocess text: tokenization, lowercasing, stopword removal  
-- Apply LDA and NMF to extract dominant topics  
-- Visualize topic-word distributions with **pyLDAvis** or **WordClouds**
 ---
 
 ## 📊 Visualizations
