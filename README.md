@@ -5,7 +5,7 @@ This project is a **Natural Language Processing (NLP)** application that perform
 
 ## 🧩 Key Steps
 - **Data Handling & Preprocessing**  
-  - Tokenization, lowercasing, stopword removal, lemmatization  
+  - Tokenization, stopword removal, lemmatization, et.c 
   - Cleaning text using `BeautifulSoup` and `re`  
 - **Feature Extraction**  
   - Using **CountVectorizer** or **TF-IDF Vectorizer**  
